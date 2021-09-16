@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS products_crud;
 
 CREATE DATABASE products_crud;
 
+USE products_crud;
+
 CREATE TABLE products (
   id            INT NOT NULL AUTO_INCREMENT,
   title         VARCHAR(255) NOT NULL,
