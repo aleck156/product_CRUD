@@ -24,6 +24,10 @@
   <body>
     <h1>Products CRUD App</h1>
 
+    <p>
+      <button class='btn btn-success'>Create New Product</button>
+    </p>
+
     <table class="table">
       <thead>
         <tr>
