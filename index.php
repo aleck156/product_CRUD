@@ -25,7 +25,7 @@
     <h1>Products CRUD App</h1>
 
     <p>
-      <button class='btn btn-success'>Create New Product</button>
+      <a href="" class='btn btn-success'>Create New Product</a>
     </p>
 
     <table class="table">
