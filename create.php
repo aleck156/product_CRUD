@@ -15,6 +15,11 @@
   $statement = $pdo->prepare("INSERT INTO
       products (title, image, description, price, create_date)
       VALUES (:title,:image, :description, :price, :date)");
+  $statement->bindValue(':title', $title);
+  $statement->bindValue(':image', $image);
+  $statement->bindValue(':description', $description);
+  $statement->bindValue(':price', $price);
+  $statement->bindValue(':create_date', $create_date);
 ?>
 
 
