@@ -3,26 +3,29 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // echo "<pre>";
-  // var_dump($_POST);
+  // var_dump($_SERVER);
   // echo "</pre>";
+  // exit();
 
-  $title = $_POST['title'];
-  $image = $_POST['image'];
-  $description = $_POST['description'];
-  $price = $_POST['price'];
-  $create_date = date('Y-m-d H:i:s');
+  if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $title = $_POST['title'];
+    $image = $_POST['image'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $create_date = date('Y-m-d H:i:s');
 
-  // using named parameters for safety reasons - no more sql injection
-  $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date) 
+    // using named parameters for safety reasons - no more sql injection
+    $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date) 
       VALUES (:title, :image, :description, :price, :create_date)");
 
-  $statement->bindValue(':title', $title);
-  $statement->bindValue(':image', '');
-  $statement->bindValue(':description', $description);
-  $statement->bindValue(':price', $price);
-  $statement->bindValue(':create_date', $create_date);
+    $statement->bindValue(':title', $title);
+    $statement->bindValue(':image', '');
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':price', $price);
+    $statement->bindValue(':create_date', $create_date);
 
-  $statement->execute();
+    $statement->execute();
+  }
 ?>
 
 
