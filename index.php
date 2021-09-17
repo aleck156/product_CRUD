@@ -3,6 +3,9 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   $statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+
+  $statement->execute();
+  $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
