@@ -9,6 +9,12 @@
   $title = $_POST['title'];
   $description = $_POST['description'];
   $price = $_POST['price'];
+  $date = date('Y-m-d H:i:s');
+
+  // using named parameters for safety reasons - no more sql injection
+  $statement = $pdo->prepare("INSERT INTO
+      products (title, image, description, price, create_date)
+      VALUES (:title,:image, :description, :price, :date)");
 ?>
 
 
