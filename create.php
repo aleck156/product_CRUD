@@ -30,7 +30,7 @@
       </div>
       <div class="mb-3">
         <label>Product Title</label>
-        <input type="text" class="form-control" name="title">
+        <input type="text" class="form-control" name="title" required>
       </div>
       <div class="mb-3">
         <label>Product Description</label>
@@ -38,7 +38,7 @@
       </div>
       <div class="mb-3">
         <label>Product Price</label>
-        <input type="number" step="0.01" class="form-control" value="0.00" min="0.00" name="price">
+        <input type="number" step="0.01" class="form-control" value="0.00" min="0.00" name="price" required>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
