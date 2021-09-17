@@ -20,22 +20,22 @@
   <body>
     <h1>Create new product</h1>
 
-    <form>
+    <form action="create.php" method="POST">
       <div class="mb-3">
         <label>Product Image</label>
-        <input type="file" class="form-control">
+        <input type="file" class="form-control" name="image">
       </div>
       <div class="mb-3">
         <label>Product Title</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="title">
       </div>
       <div class="mb-3">
         <label>Product Description</label>
-        <textarea type="text" class="form-control"></textarea>
+        <textarea type="text" class="form-control" name="description"></textarea>
       </div>
       <div class="mb-3">
         <label>Product Price</label>
-        <input type="number" step="0.01" class="form-control" value="0.00" min="0.00">
+        <input type="number" step="0.01" class="form-control" value="0.00" min="0.00" name="price">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
