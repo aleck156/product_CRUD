@@ -32,6 +32,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">PID</th>
           <th scope="col">Image</th>
           <th scope="col">Title</th>
           <th scope="col">Price</th>
@@ -43,6 +44,7 @@
         <?php foreach($products as $i => $product): ?>
               <tr>
                 <th scope="row"><?php echo $i+1 ?></th>
+                <td><?php echo $product['id'] ?></td>
                 <td><?php echo $product['image'] ?></td>
                 <td><?php echo $product['title'] ?></td>
                 <td><?php echo $product['price'] ?></td>
