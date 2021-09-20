@@ -26,22 +26,45 @@
       $errors[] = "Product price is required!";
     }
 
-    if (empty($errors)) {      
+    if (!is_dir('images')){
+      mkdir('images');
+    }
+
+    if (empty($errors)) {
+      $image = $_FILES['image'] ?? null;
+      $imagePath = '';
+      if ($image && $image['tmp_name']){
+        $imagePath = 'images/'.randomString(8).'/'.$image['name'];
+        mkdir(dirname($imagePath));
+        move_uploaded_file($image['tmp_name'], $imagePath);
+      }
+
       // using named parameters for safety reasons - no more sql injection
       $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date) 
       VALUES (:title, :image, :description, :price, :create_date)");
 
       $statement->bindValue(':title', $title);
-      $statement->bindValue(':image', '');
+      $statement->bindValue(':image', $imagePath);
       $statement->bindValue(':description', $description);
       $statement->bindValue(':price', $price);
       $statement->bindValue(':create_date', $create_date);
 
       $statement->execute();
+      header('Location: index.php');
     }
   }
-?>
 
+function randomString($n) {
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $str = '';
+  for ($i = 0; $i < $n ; $i++){
+    $index = rand(0, strlen($characters) - 1);
+    $str .= $characters[$index];
+  }
+  return $str;
+}
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -66,7 +89,7 @@
       </div>
     <?php endif;?>
 
-    <form action="create.php" method="POST">
+    <form action="create.php" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
         <label>Product Image</label>
         <input type="file" class="form-control" name="image">
