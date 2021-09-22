@@ -31,12 +31,14 @@
       <a href="create.php" class='btn btn-success'>Create New Product</a>
     </p>
 
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Search for products ..." aria-label="Recipient's username" aria-describedby="button-addon2">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
+    <form>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for products ..." name="search">
+        <button class="btn btn-outline-secondary" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </form>
 
     <table class="table">
       <thead>
