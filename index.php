@@ -19,6 +19,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="app.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>Products CRUD App</title>
   </head>
   <body>
@@ -27,6 +30,13 @@
     <p>
       <a href="create.php" class='btn btn-success'>Create New Product</a>
     </p>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search for products ..." aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
 
     <table class="table">
       <thead>
