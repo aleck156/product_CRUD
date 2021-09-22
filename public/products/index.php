@@ -1,6 +1,8 @@
 <?php
-  $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  /** @var $pdo \PDO */
+  require_once "../../database.php";
+  require_once "../../functions.php";
 
   $search = $_GET['search'] ?? '';
 
@@ -16,23 +18,7 @@
 ?>
 
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="app.css">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>Products CRUD App</title>
-  </head>
-  <body>
-    <h1>Products CRUD App</h1>
+<?php include_once "../../views/partials/header.php"?>
 
     <p>
       <a href="create.php" class='btn btn-success'>Create New Product</a>
@@ -66,7 +52,7 @@
                 <th scope="row"><?php echo $i+1 ?></th>
                 <td><?php echo $product['id'] ?></td>
                 <td>
-                  <img src="<?php echo $product['image'] ?>" alt="" class='thumb-image'>
+                  <img src="../<?php echo $product['image'] ?>" alt="" class='thumb-image'>
                 </td>
                 <td><?php echo $product['title'] ?></td>
                 <td><?php echo $product['price'] ?></td>
