@@ -9,7 +9,7 @@
   $errors = [];
   $title = '';
   $price = '';
-  $descriptiopn = '';
+  $description = '';
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $title = $_POST['title'];
