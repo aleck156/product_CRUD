@@ -1,0 +1,10 @@
+.idea
+vendor
+*.jpg
+*.jpeg
+*.png
+*.webp
+
+images
+public/images/
+images/
